@@ -701,6 +701,7 @@ section { padding: 88px 0; }
   .mobile-toggle { display: block; }
   .trust-bar-inner { gap: 16px; }
   section { padding: 56px 0; }
+  .s-card p, .v-card p, .step p { font-size: 15px; line-height: 1.7; }
 }
 
 @media (max-width: 480px) {
