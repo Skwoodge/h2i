@@ -1,5 +1,8 @@
+import { EmailMessage } from "cloudflare:email"
+import { createMimeMessage } from "mimetext"
+
 export async function onRequest(context) {
-  const { request } = context
+  const { request, env } = context
 
   if (request.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
@@ -19,17 +22,22 @@ export async function onRequest(context) {
       })
     }
 
-    const endpoint = context.env.FORMSPREE_ENDPOINT
-    if (endpoint) {
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message }),
-      })
-      if (!res.ok) {
-        throw new Error('Form service error: ' + res.status)
-      }
-    }
+    const msg = createMimeMessage()
+    msg.setSender({ name: 'H2 Insurance Contact', addr: 'contact@h2insurancecares.com' })
+    msg.setRecipient('mike.h2i@icloud.com')
+    msg.setSubject(`New Contact from ${name}`)
+    msg.addMessage({
+      contentType: 'text/plain',
+      data: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nMessage: ${message}`,
+    })
+
+    var emailMsg = new EmailMessage(
+      'contact@h2insurancecares.com',
+      'mike.h2i@icloud.com',
+      msg.asRaw(),
+    )
+
+    await env.SEND_EMAIL.send(emailMsg)
 
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
