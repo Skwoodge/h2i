@@ -608,28 +608,6 @@ section { padding: 88px 0; }
   box-shadow: 0 0 0 3px rgba(0,122,255,0.12);
 }
 .fg textarea { resize: vertical; min-height: 100px; }
-
-.form-status {
-  margin-top: 12px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  display: none;
-}
-.form-status.success {
-  display: block;
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #a7f3d0;
-}
-.form-status.error {
-  display: block;
-  background: #fee2e2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
-}
-
 /* ───── Footer ───── */
 .footer {
   background: var(--navy-dark);

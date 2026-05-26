@@ -301,25 +301,24 @@
 
         <div class="cform reveal reveal-delay-2">
           <h4>Send a Message</h4>
-          <form id="contactForm">
+          <form action="mailto:mike.h2i@icloud.com" method="GET" enctype="text/plain">
             <div class="fg">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="Name" required />
             </div>
             <div class="fg">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="Email" required />
             </div>
             <div class="fg">
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" />
+              <input type="tel" id="phone" name="Phone" />
             </div>
             <div class="fg">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell me a little about what you're looking for…" required></textarea>
+              <textarea id="message" name="Message" placeholder="Tell me a little about what you're looking for…" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
-            <div id="formStatus" class="form-status"></div>
           </form>
         </div>
       </div>
