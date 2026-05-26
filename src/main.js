@@ -52,3 +52,28 @@ form?.addEventListener('submit', async (e) => {
     submitBtn.disabled = false
   }
 })
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return
+    const el = entry.target
+    const target = parseInt(el.dataset.target, 10)
+    if (isNaN(target)) return
+    counterObs.unobserve(el)
+    let current = 0
+    const duration = 1200
+    const start = performance.now()
+    function tick(now) {
+      const elapsed = now - start
+      const progress = Math.min(elapsed / duration, 1)
+      current = Math.round(progress * target)
+      el.textContent = current
+      el.classList.add('counting')
+      el.addEventListener('animationend', () => el.classList.remove('counting'), { once: true })
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  })
+}, { threshold: 0.5 })
+
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el))
