@@ -301,7 +301,7 @@
 
         <div class="cform reveal reveal-delay-2">
           <h4>Send a Message</h4>
-          <form action="#" method="POST">
+          <form id="contactForm">
             <div class="fg">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required />
@@ -319,6 +319,7 @@
               <textarea id="message" name="message" placeholder="Tell me a little about what you're looking for…" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+            <div id="formStatus" class="form-status"></div>
           </form>
         </div>
       </div>
