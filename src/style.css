@@ -678,7 +678,7 @@ section { padding: 88px 0; }
   .hero-actions { justify-content: center; }
   .hero-image { order: -1; }
   .hero-image img { max-width: 240px; }
-  .hero { padding: 36px 0 0; }
+  .hero { padding: 36px 0 24px; }
 
   .about-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }
