@@ -22,3 +22,20 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' })
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+const form = document.getElementById('contactForm')
+const successMsg = document.getElementById('form-success')
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const data = new FormData(form)
+  const res = await fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  if (res.ok) {
+    form.style.display = 'none'
+    successMsg.style.display = 'block'
+  }
+})
