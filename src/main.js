@@ -77,15 +77,3 @@ const counterObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 })
 
 document.querySelectorAll('.counter').forEach(el => counterObs.observe(el))
-
-const navLinks = document.querySelectorAll('.nav a[href^="#"]')
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const link = document.querySelector(`.nav a[href="#${entry.target.id}"]`)
-    if (link) link.classList.toggle('active', entry.isIntersecting)
-  })
-}, { threshold: 0.2, rootMargin: '0px 0px -30% 0px' })
-;['about', 'services', 'contact'].forEach(id => {
-  const el = document.getElementById(id)
-  if (el) navObserver.observe(el)
-})

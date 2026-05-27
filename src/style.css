@@ -131,13 +131,6 @@ body {
   letter-spacing: 0.3px;
 }
 .nav .btn-enroll-nav:hover { background: var(--blue-hover); transform: none; box-shadow: 0 2px 8px rgba(0,122,255,0.3); }
-.nav a.active { background: rgba(255,255,255,0.12); color: var(--white); }
-
-@keyframes navPulse {
-  0%, 100% { box-shadow: 0 2px 8px rgba(0,122,255,0.2); }
-  50% { box-shadow: 0 2px 16px rgba(0,122,255,0.45); }
-}
-.nav .btn-enroll-nav { animation: navPulse 10s ease-in-out infinite; }
 
 .mobile-toggle {
   display: none;
@@ -284,8 +277,6 @@ body {
   background: rgba(255,255,255,0.1);
 }
 .btn-lg { padding: 16px 36px; font-size: 16px; }
-.btn .btn-arrow { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-.btn:hover .btn-arrow { transform: translateX(4px); }
 
 /* ───── Trust Bar ───── */
 .trust-bar {
@@ -352,7 +343,7 @@ section { padding: 88px 0; }
   padding: 36px 32px;
   transition: box-shadow 0.2s;
 }
-.about-card:hover { box-shadow: 0 8px 36px rgba(0,45,114,0.13); transform: translateY(-4px); }
+.about-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
 .about-card { transition: all 0.3s ease; }
 .about-card h3 {
   font-family: var(--font-heading);
@@ -398,12 +389,6 @@ section { padding: 88px 0; }
   color: var(--blue);
   opacity: 0.12;
   line-height: 1;
-  animation: breathe 8s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { opacity: 0.12; }
-  50% { opacity: 0.06; }
 }
 .quote-section blockquote p {
   font-family: var(--font-heading);
@@ -443,7 +428,7 @@ section { padding: 88px 0; }
   border-radius: 12px;
   transition: all 0.2s;
 }
-.v-card:hover { border-color: var(--blue); box-shadow: 0 8px 36px rgba(0,45,114,0.13); transform: translateY(-5px); }
+.v-card:hover { border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-3px); }
 .v-card { transition: all 0.3s ease; }
 .v-icon {
   width: 56px;
@@ -465,13 +450,6 @@ section { padding: 88px 0; }
 }
 .v-card p { color: var(--gray-700); font-size: 14px; line-height: 1.7; }
 
-@keyframes iconPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.18); }
-  100% { transform: scale(1); }
-}
-.v-card.visible .v-icon { animation: iconPulse 0.5s ease; }
-
 /* ───── Services ───── */
 .services-section { background: var(--gray-100); }
 .services-grid {
@@ -490,7 +468,7 @@ section { padding: 88px 0; }
   align-items: flex-start;
   transition: all 0.2s;
 }
-.s-card:hover { border-color: var(--blue); box-shadow: 0 6px 28px rgba(0,45,114,0.11); transform: translateY(-4px); }
+.s-card:hover { border-color: var(--blue); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .s-card { transition: all 0.3s ease; }
 .s-icon {
   width: 44px;
@@ -536,14 +514,6 @@ section { padding: 88px 0; }
   transition: all 0.3s ease;
 }
 .step:hover .step-num { background: var(--blue-bright); transform: scale(1.1); box-shadow: 0 4px 16px rgba(0,122,255,0.3); }
-
-@keyframes popIn {
-  0% { transform: scale(0.4); opacity: 0; }
-  50% { transform: scale(1.12); }
-  70% { transform: scale(0.95); }
-  100% { transform: scale(1); opacity: 1; }
-}
-.step.visible .step-num { animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .step h4 {
   font-family: var(--font-heading);
   font-size: 16px;
